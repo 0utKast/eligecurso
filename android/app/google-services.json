@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "230009260812",
+    "firebase_url": "https://elige-curso.firebaseio.com",
+    "project_id": "elige-curso",
+    "storage_bucket": "elige-curso.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230009260812:android:796177e7b7767baa",
+        "android_client_info": {
+          "package_name": "com.videotutoriales.parafirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230009260812-29l81b2fc9p8n8pq2efonu48k61qdes4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr7Lt0RFzQP-LhFrZgEo6EfBYNMZMqAcY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

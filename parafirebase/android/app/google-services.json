@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "442235239152",
+    "firebase_url": "https://paraflutter.firebaseio.com",
+    "project_id": "paraflutter",
+    "storage_bucket": "paraflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442235239152:android:796177e7b7767baa",
+        "android_client_info": {
+          "package_name": "com.videotutoriales.parafirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442235239152-5o82f69oj3r7h9c7mlvrc2dhs1ma31k4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpWXvWWt25DfPFCf5d5v3NDlVdnqr-2c4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

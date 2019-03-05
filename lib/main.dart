@@ -3,14 +3,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-final dummySnapshot = [
-  {"name": "Java", "votes": 6},
-  {"name": "JavaScript", "votes": 12},
-  {"name": "Python", "votes": 9},
-  {"name": "Flutter", "votes": 10},
-
-];
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -38,15 +30,15 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildBody(BuildContext context) {
- return StreamBuilder<QuerySnapshot>(
-   stream: Firestore.instance.collection('curso').snapshots(),
-   builder: (context, snapshot) {
-     if (!snapshot.hasData) return LinearProgressIndicator();
+    return StreamBuilder<QuerySnapshot>(
+      stream: Firestore.instance.collection('curso').snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return LinearProgressIndicator();
 
-     return _buildList(context, snapshot.data.documents);
-   },
- );
-}
+        return _buildList(context, snapshot.data.documents);
+      },
+    );
+  }
 
   Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
     return ListView(
@@ -56,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
- final record = Record.fromSnapshot(data);
+    final record = Record.fromSnapshot(data);
 
     return Padding(
       key: ValueKey(record.name),

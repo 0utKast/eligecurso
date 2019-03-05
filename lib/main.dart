@@ -38,9 +38,15 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildBody(BuildContext context) {
-    // TODO: get actual snapshot from Cloud Firestore
-    return _buildList(context, dummySnapshot);
-  }
+ return StreamBuilder<QuerySnapshot>(
+   stream: Firestore.instance.collection('curso').snapshots(),
+   builder: (context, snapshot) {
+     if (!snapshot.hasData) return LinearProgressIndicator();
+
+     return _buildList(context, snapshot.data.documents);
+   },
+ );
+}
 
   Widget _buildList(BuildContext context, List<Map> snapshot) {
     return ListView(

@@ -59,10 +59,16 @@ class _MyHomePageState extends State<MyHomePage> {
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(
-            title: Text(record.name),
-            trailing: Text(record.votes.toString()),
-            onTap: () =>
-                record.reference.updateData({'votes': record.votes + 1})),
+          title: Text(record.name),
+          trailing: Text(record.votes.toString()),
+          onTap: () => Firestore.instance.runTransaction((transaction) async {
+                final freshSnapshot = await transaction.get(record.reference);
+                final fresh = Record.fromSnapshot(freshSnapshot);
+
+                await transaction
+                    .update(record.reference, {'votes': fresh.votes + 1});
+              }),
+        ),
       ),
     );
   }

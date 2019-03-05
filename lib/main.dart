@@ -3,6 +3,14 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
+final dummySnapshot = [
+  {"name": "Filip", "votes": 15},
+  {"name": "Abraham", "votes": 14},
+  {"name": "Richard", "votes": 11},
+  {"name": "Ike", "votes": 10},
+  {"name": "Justin", "votes": 1},
+];
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Elige Próximo Curso')),
+      appBar: AppBar(title: Text('Elige el Próximo Curso')),
       body: _buildBody(context),
     );
   }
@@ -61,7 +69,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListTile(
           title: Text(record.name),
           trailing: Text(record.votes.toString()),
-          onTap: () => print(record),
+          onTap: () => Firestore.instance.runTransaction((transaction) async {
+                final freshSnapshot = await transaction.get(record.reference);
+                final fresh = Record.fromSnapshot(freshSnapshot);
+
+                await transaction
+                    .update(record.reference, {'votes': fresh.votes + 1});
+              }),
         ),
       ),
     );
